@@ -9,7 +9,7 @@ pipeline {
     stage('CheckOut') {
       steps {
         echo 'Checkout the source code from GitHub'
-        git branch: 'main', url: 'https://github.com/Arpithabp/insurance-project_DevOps.git'
+        git branch: 'main', url: 'https://github.com/sanketsj991/insureme.git'
             }
     }
     
@@ -28,7 +28,7 @@ pipeline {
     
     stage('Docker Image Creation') {
       steps {
-        sh 'docker build -t arpithabp/insure-project:latest . '
+        sh 'docker build -t sanketsj/insure-project:latest . '
             }
     }
     stage('DockerLogin') {
@@ -41,7 +41,7 @@ pipeline {
 
     stage('Push Image to DockerHub') {
       steps {
-        sh 'docker push arpithabp/insure-project:latest'
+        sh 'docker push sanketsj/insure-project:latest'
             }
     }
       stage('Deploy Application using Ansible') {
